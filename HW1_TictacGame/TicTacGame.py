@@ -78,6 +78,10 @@ class TicTacGame:
 
         return True
 
+    def coord_input(self):
+        x, y = map(int, input().split())
+        return x,y
+
     def start_game(self):
 
         step = True
@@ -89,7 +93,7 @@ class TicTacGame:
             else:
                 print("O step:")
 
-            x, y = map(int, input().split())
+            x, y = self.coord_input()
 
             if self.validate_input(x, y):
                 self.cls_gameField[x][y] = 1 if step else -1
@@ -98,15 +102,15 @@ class TicTacGame:
             if self.check_winner() == 1:
                 self.show_board()
                 print("X wins")
-                break
+                return True
             if self.check_winner() == 2:
                 self.show_board()
                 print("O wins")
-                break
+                return True
 
             if self.check_draw():
                 print("Draw")
-                break
+                return True
 
 
 if __name__ == '__main__':

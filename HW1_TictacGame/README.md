@@ -1,8 +1,9 @@
 # HW1 TicTac Game 
 
-Name            Stmts   Miss  Cover  
+Name            Stmts   Miss  Cover
 ---------------------------------------------
-TicTacGame.py      79     26    67%   \
-tests.py           47      0   100%
+TicTacGame.py      82     16    80%   
+tests.py           52      0   100%
 ---------------------------------------------
-TOTAL             126     26    79%
+TOTAL             134     16    88%
+
