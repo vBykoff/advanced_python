@@ -64,6 +64,16 @@ class TicTacGame:
                                     self.print_x_or_o(i, 2)))
 
     def validate_input(self, x, y):
+        if x == '':
+            print("Incorrect value")
+            return False
+        if y == '':
+            print("Incorrect value")
+            return False
+
+        x = int(x)
+        y = int(y)
+
         if x < 0 or x > 2:
             print("Out of dimension, X axis")
             return False
@@ -79,8 +89,12 @@ class TicTacGame:
         return True
 
     def coord_input(self):
-        x, y = map(int, input().split())
-        return x,y
+        print("x coordinate")
+        x = input()
+        print("y coordinate")
+        y = input()
+
+        return x, y
 
     def start_game(self):
 
@@ -96,6 +110,8 @@ class TicTacGame:
             x, y = self.coord_input()
 
             if self.validate_input(x, y):
+                x = int(x)
+                y = int(y)
                 self.cls_gameField[x][y] = 1 if step else -1
                 step = not step
 

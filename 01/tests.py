@@ -2,7 +2,7 @@ import unittest
 import unittest.mock
 from TicTacGame import TicTacGame
 import io
-import sys
+import sys, os
 
 
 class TestTicTacGame(unittest.TestCase):
