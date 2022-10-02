@@ -64,15 +64,16 @@ class TicTacGame:
                                     self.print_x_or_o(i, 2)))
 
     def validate_input(self, x, y):
-        if x == '':
-            print("Incorrect value")
+        try:
+            x = int(x)
+        except ValueError:
+            print("Incorrect value: x coordinate")
             return False
-        if y == '':
-            print("Incorrect value")
+        try:
+            y = int(y)
+        except ValueError:
+            print("Incorrect value: y coordinate")
             return False
-
-        x = int(x)
-        y = int(y)
 
         if x < 0 or x > 2:
             print("Out of dimension, X axis")

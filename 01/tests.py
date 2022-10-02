@@ -1,8 +1,6 @@
-import unittest
 import unittest.mock
 from TicTacGame import TicTacGame
 import io
-import sys, os
 
 
 class TestTicTacGame(unittest.TestCase):
@@ -13,6 +11,7 @@ class TestTicTacGame(unittest.TestCase):
     def test_validate_input(self):
         self.assertEqual(self.game.validate_input(3, 4), False)
         self.assertEqual(self.game.validate_input(4, 2), False)
+        self.assertEqual(self.game.validate_input(" ", " "), False)
         self.game.cls_gameField[0][0] = 1
         self.assertEqual(self.game.validate_input(0, 0), False)
 
@@ -90,6 +89,18 @@ class TestTicTacGame(unittest.TestCase):
                                    [-1, 1, 1],
                                    [-1, 1, 1]]
         coord_input_mock.return_value = [1, 1]
+        self.assertEqual(self.game.start_game(), True)
+
+        self.game.cls_gameField = [[0, 1, 0],
+                                   [0, 1, 1],
+                                   [0, 1, 1]]
+        coord_input_mock.return_value = [" ", 1]
+        self.assertEqual(self.game.start_game(), True)
+
+        self.game.cls_gameField = [[-1, 1, -1],
+                                   [-1, 1, 1],
+                                   [1, -1, 1]]
+        coord_input_mock.return_value = [" ", 1]
         self.assertEqual(self.game.start_game(), True)
 
 
