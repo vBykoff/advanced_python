@@ -85,23 +85,24 @@ class TestTicTacGame(unittest.TestCase):
 
     @unittest.mock.patch("TicTacGame.TicTacGame.coord_input")
     def test_start_game(self, coord_input_mock):
-        self.game.cls_gameField = [[-1, 1, 0],
-                                   [-1, 1, 1],
-                                   [-1, 1, 1]]
-        coord_input_mock.return_value = [1, 1]
-        self.assertEqual(self.game.start_game(), True)
+        with unittest.mock.patch('sys.stdout', new=io.StringIO()):
+            self.game.cls_gameField = [[-1, 1, 0],
+                                       [-1, 1, 1],
+                                       [-1, 1, 1]]
+            coord_input_mock.return_value = [1, 1]
+            self.assertEqual(self.game.start_game(), True)
 
-        self.game.cls_gameField = [[0, 1, 0],
-                                   [0, 1, 1],
-                                   [0, 1, 1]]
-        coord_input_mock.return_value = [" ", 1]
-        self.assertEqual(self.game.start_game(), True)
+            self.game.cls_gameField = [[0, 1, 0],
+                                       [0, 1, 1],
+                                       [0, 1, 1]]
+            coord_input_mock.return_value = [" ", 1]
+            self.assertEqual(self.game.start_game(), True)
 
-        self.game.cls_gameField = [[-1, 1, -1],
-                                   [-1, 1, 1],
-                                   [1, -1, 1]]
-        coord_input_mock.return_value = [" ", 1]
-        self.assertEqual(self.game.start_game(), True)
+            self.game.cls_gameField = [[-1, 1, -1],
+                                       [-1, 1, 1],
+                                       [1, -1, 1]]
+            coord_input_mock.return_value = [" ", 1]
+            self.assertEqual(self.game.start_game(), True)
 
 
 if __name__ == '__main__':
