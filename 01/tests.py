@@ -9,13 +9,14 @@ class TestTicTacGame(unittest.TestCase):
         self.game = TicTacGame()
 
     def test_validate_input(self):
-        self.assertEqual(self.game.validate_input(3, 4), False)
-        self.assertEqual(self.game.validate_input(4, 2), False)
-        self.assertEqual(self.game.validate_input(" ", " "), False)
-        self.game.cls_gameField[0][0] = 1
-        self.assertEqual(self.game.validate_input(0, 0), False)
+        with unittest.mock.patch('sys.stdout', new=io.StringIO()):
+            self.assertEqual(self.game.validate_input(3, 4), False)
+            self.assertEqual(self.game.validate_input(4, 2), False)
+            self.assertEqual(self.game.validate_input(" ", " "), False)
+            self.game.cls_gameField[0][0] = 1
+            self.assertEqual(self.game.validate_input(0, 0), False)
 
-        self.assertEqual(self.game.validate_input(1, 1), True)
+            self.assertEqual(self.game.validate_input(1, 1), True)
 
     def test_check_winner(self):
         # first diagonal
@@ -59,11 +60,12 @@ class TestTicTacGame(unittest.TestCase):
         self.assertEqual(self.game.check_winner(), 2)
 
     def test_check_draw(self):
-        self.assertEqual(self.game.check_draw(), False)
-        self.game.cls_gameField = [[-1, 1, 1],
-                                   [-1, 1, 1],
-                                   [-1, 1, 1]]
-        self.assertEqual(self.game.check_draw(), True)
+        with unittest.mock.patch('sys.stdout', new=io.StringIO()):
+            self.assertEqual(self.game.check_draw(), False)
+            self.game.cls_gameField = [[-1, 1, 1],
+                                       [-1, 1, 1],
+                                       [-1, 1, 1]]
+            self.assertEqual(self.game.check_draw(), True)
 
     def test_print_x_or_o(self):
         self.game.cls_gameField = [[-1, 1, 0],
