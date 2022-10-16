@@ -1,8 +1,10 @@
 import unittest
-from CustomMetaClass import CustomMeta
+from custom_meta_class import CustomMeta
+from Descriptors import Data
 
 
 class CustomClass(metaclass=CustomMeta):
+    """class for testing metaclass"""
     x = 50
 
     def __init__(self, val=99):
@@ -22,13 +24,41 @@ class CustomMetaTest(unittest.TestCase):
         self.assertEqual(inst.custom_x, 50)
         self.assertEqual(inst.custom_val, 99)
         self.assertEqual(inst.custom_line(), 100)
+        self.assertEqual(CustomClass.custom_x, 50)
 
-        self.assertEqual(True, False)
+        inst.dynamic = "f"
+        self.assertEqual(inst.custom_dynamic, "f")
 
 
 class DescriptorTest(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)
+    def setUp(self) -> None:
+        self.data = Data()
+
+    def test_integer(self):
+        self.assertEqual(self.data.num, 0)
+        self.data.num = 1
+        self.assertEqual(self.data.num, 1)
+
+        with self.assertRaises(TypeError):
+            self.data.num = 0.9
+
+    def test_string(self):
+        self.assertEqual(self.data.name, "")
+        self.data.name = "f"
+        self.assertEqual(self.data.name, "f")
+
+        with self.assertRaises(TypeError):
+            self.data.name = 9
+
+    def test_positive_integer(self):
+        self.assertEqual(self.data.price, 0)
+        self.data.price = 2
+        self.assertEqual(self.data.price, 2)
+
+        with self.assertRaises(TypeError):
+            self.data.price = "yu"
+        with self.assertRaises(ValueError):
+            self.data.price = -1
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@
 class Integer:
     """Integer descriptor"""
 
-    def __set_name__(self, owner, name):
+    def __init__(self):
         self.__variable = 0
 
     def __get__(self, obj, objtype):
@@ -23,7 +23,7 @@ class Integer:
 class String:
     """String descriptor"""
 
-    def __set_name__(self, owner, name):
+    def __init__(self):
         self.__variable = ""
 
     def __get__(self, obj, objtype):
@@ -42,7 +42,7 @@ class String:
 class PositiveInteger:
     """Positive Integer descriptor"""
 
-    def __set_name__(self, owner, name):
+    def __init__(self):
         self.__variable = 0
 
     def __get__(self, obj, objtype):
@@ -51,7 +51,7 @@ class PositiveInteger:
     def __set__(self, obj, val):
         if isinstance(val, int):
             if val >= 0:
-                self.variable = val
+                self.__variable = val
             else:
                 raise ValueError("Value that less than zero "
                                  "cannot be positive integer")
@@ -63,14 +63,7 @@ class PositiveInteger:
 
 
 class Data:
+    """class for testing descriptors"""
     num = Integer()
     name = String()
     price = PositiveInteger()
-
-    def __init__(self):
-        pass
-
-
-if __name__ == "__main__":
-    d = Data()
-
