@@ -1,4 +1,7 @@
+"""LRU Cache module"""
+
 class LRUCache:
+    """Lru cache"""
 
     def __init__(self, limit=42):
         self.size = 0
@@ -6,6 +9,7 @@ class LRUCache:
         self._cache = {}
 
     def get(self, key):
+        """get method"""
         value = self._cache.get(key)
         if value is not None:
             del self._cache[key]
@@ -14,6 +18,7 @@ class LRUCache:
         return value
 
     def set(self, key, value):
+        """set method"""
         if self.size + 1 >= self.limit:
             del self._cache[list(self._cache.keys())[0]]
         self._cache[key] = value
@@ -35,4 +40,3 @@ class LRUCache:
     # assert cache.get("k3") == "val3"
     # assert cache.get("k2") == None
     # assert cache.get("k1") == "val1"
-

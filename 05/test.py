@@ -1,8 +1,9 @@
 import unittest
-from faker import Faker 
+from faker import Faker
 from lru_cache import LRUCache
 from filter_file import filter_file
 import random
+
 
 class LruTest(unittest.TestCase):
     def test_lru_cache(self):
@@ -11,13 +12,13 @@ class LruTest(unittest.TestCase):
         cache.set("k1", "val1")
         cache.set("k2", "val2")
 
-        self.assertTrue(cache.get("k3") == None)
+        self.assertEqual(cache.get("k3"), None)
         self.assertTrue(cache.get("k2") == "val2")
         self.assertTrue(cache.get("k1") == "val1")
 
         cache.set("k3", "val3")
         self.assertTrue(cache.get("k3") == "val3")
-        self.assertTrue(cache.get("k2") == None)
+        self.assertEqual(cache.get("k2"), None)
         self.assertTrue(cache.get("k1") == "val1")
 
 
@@ -39,8 +40,6 @@ class FilterTest(unittest.TestCase):
                     self.true_lines.append(sentence)
                     random_word = words[random.randint(0, len(words) - 1)]
                     self.words_to_find.append(random_word)
-                
-               
 
     def test_filter_file(self):
         generator = filter_file(self.path_to_file, self.words_to_find)
@@ -53,6 +52,3 @@ class FilterTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
