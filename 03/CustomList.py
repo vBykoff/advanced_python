@@ -3,10 +3,10 @@
 
 class CustomList(list):
     """Custom List"""
-    def __init__(self, params=None):
-        if params is None:
-            params = []
-        super().__init__(params)
+    #def __init__(self, params=None):
+    #    if params is None:
+    #        params = []
+    #    super().__init__(params)
 
     def __add__(self, other):
         result_list = []
@@ -122,5 +122,6 @@ class CustomList(list):
         return f"{super().__str__()}, sum={sum(self)}"
 
 
-# if __name__ == '__main__':
-#     print("ho")
+if __name__ == '__main__':
+    l = CustomList([1,2,3])
+    print(l[0])
