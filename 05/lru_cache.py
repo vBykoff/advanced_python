@@ -14,14 +14,14 @@ class LRUCache:
         if value is not None:
             del self._cache[key]
             self._cache[key] = value
-        self.size += 1
         return value
 
     def set(self, key, value):
         """set method"""
-        if self.size + 1 >= self.limit:
+        if self.size + 1 > self.limit:
             del self._cache[list(self._cache.keys())[0]]
         self._cache[key] = value
+        self.size += 1
 
 
 # if __name__ == "__main__":
