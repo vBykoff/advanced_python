@@ -28,6 +28,7 @@ class CustomMetaTest(unittest.TestCase):
 
         inst.dynamic = "f"
         self.assertEqual(inst.custom_dynamic, "f")
+        self.assertEqual(inst.__str__(), "Custom_by_metaclass")
 
 
 class DescriptorTest(unittest.TestCase):
