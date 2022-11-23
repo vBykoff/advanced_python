@@ -27,21 +27,26 @@ class JsonParserTests(unittest.TestCase):
                 self.result.append(word)
 
         self.json_object = json.dumps(json_dict)
-        print(self.json_object)
-        print(self.result)
-        print(self.keywords)
-        print(self.required_fields)
+        # print(self.json_object)
+        # print(self.result)
+        # print(self.keywords)
+        # print(self.required_fields)
 
     def test_json_parser(self):
+        result = parse_json(str(self.json_object), self.required_fields, self.keywords, None)
+        self.assertEqual(result, self.result)
+
         result = parse_json(str(self.json_object), self.required_fields, self.keywords)
         self.assertEqual(result, self.result)
+
+
 
     @unittest.mock.patch("json_parser.keyword_handler")
     def test_json_parser_callback(self, keyword_handler_mock):
         keyword_handler_mock.return_value = "Value"
         result = parse_json(str(self.json_object), self.required_fields,
                             self.keywords, keyword_handler_mock)
-        print(result)
+        # print(result)
         self.assertTrue(keyword_handler_mock.called)
         self.assertEqual(keyword_handler_mock.call_count, len(self.result))
 

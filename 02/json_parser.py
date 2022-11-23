@@ -11,6 +11,8 @@ def parse_json(json_str: str, required_fields=None,
                keywords=None, keyword_callback=keyword_handler):
     """Find keywords in required fields in json string
     and execute keyword_callback for each of them"""
+    if keyword_callback is None:
+        keyword_callback=keyword_handler
     result = []
     json_doc = json.loads(json_str)
     for field in json_doc:
