@@ -1,0 +1,67 @@
+===========Create==========
+         13000002 function calls in 19.330 seconds
+
+   Random listing order was used
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  1000000    0.418    0.000    0.418    0.000 {built-in method builtins.getattr}
+  1000000    0.192    0.000    0.192    0.000 {method 'items' of 'dict' objects}
+  1000000    0.150    0.000    0.150    0.000 {method 'append' of 'list' objects}
+  1000000    6.758    0.000   16.999    0.000 {method 'randint' of 'numpy.random.mtrand.RandomState' objects}
+  1000000    0.737    0.000   10.241    0.000 <__array_function__ internals>:2(prod)
+  1000000    0.646    0.000    9.331    0.000 {built-in method numpy.core._multiarray_umath.implement_array_function}
+  1000000    3.247    0.000    3.247    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+  1000000    0.493    0.000    0.493    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:70(<dictcomp>)
+  1000000    3.215    0.000    7.565    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:69(_wrapreduction)
+  1000000    0.173    0.000    0.173    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2928(_prod_dispatcher)
+  1000000    1.119    0.000    8.685    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2933(prod)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+  1000000    0.314    0.000    0.314    0.000 /home/vladimir/PycharmProjects/advanced_python/09/types.py:9(__init__)
+  1000000    0.171    0.000    0.171    0.000 /home/vladimir/PycharmProjects/advanced_python/09/types.py:25(__init__)
+        1    1.696    1.696   19.330   19.330 /home/vladimir/PycharmProjects/advanced_python/09/types.py:29(create)
+
+
+
+===========Get==========
+        1000002 function calls in 0.189 seconds
+
+   Random listing order was used
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  1000000    0.050    0.000    0.050    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.139    0.139    0.189    0.189 /home/vladimir/PycharmProjects/advanced_python/09/types.py:38(get)
+
+
+
+===========Set==========
+         11000002 function calls in 12.117 seconds
+
+   Random listing order was used
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  1000000    0.309    0.000    0.309    0.000 {built-in method builtins.getattr}
+  1000000    0.118    0.000    0.118    0.000 {method 'items' of 'dict' objects}
+  1000000    4.451    0.000   10.911    0.000 {method 'randint' of 'numpy.random.mtrand.RandomState' objects}
+  1000000    0.550    0.000    6.459    0.000 <__array_function__ internals>:2(prod)
+  1000000    0.485    0.000    5.779    0.000 {built-in method numpy.core._multiarray_umath.implement_array_function}
+  1000000    2.305    0.000    2.305    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+  1000000    0.363    0.000    0.363    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:70(<dictcomp>)
+  1000000    1.381    0.000    4.476    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:69(_wrapreduction)
+  1000000    0.131    0.000    0.131    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2928(_prod_dispatcher)
+  1000000    0.818    0.000    5.294    0.000 /home/vladimir/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2933(prod)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+  1000000    0.220    0.000    0.220    0.000 /home/vladimir/PycharmProjects/advanced_python/09/types.py:9(__init__)
+        1    0.986    0.986   12.117   12.117 /home/vladimir/PycharmProjects/advanced_python/09/types.py:44(set)
+
+
+
+===========Delete==========
+         2 function calls in 0.158 seconds
+
+   Random listing order was used
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.158    0.158    0.158    0.158 /home/vladimir/PycharmProjects/advanced_python/09/types.py:50(deleting)
+
